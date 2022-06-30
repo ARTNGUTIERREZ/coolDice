@@ -1,0 +1,46 @@
+Random dice1= new Random();
+Random dice2= new Random();
+Random dice3= new Random();
+
+int roll1 = dice1.Next(1,7);
+int roll2 = dice2.Next(1,7);
+int roll3 = dice3.Next(1,7);
+
+int dicePoints = roll1+roll2+roll3;
+
+int bonusPoints = 0;
+
+Console.WriteLine($@"Joguinho legal!
+
+Dado nº1 : {roll1}
+Dado nº2 : {roll2}
+Dado nº3 : {roll3}
+
+");
+
+
+if ((roll1 == roll2)&&(roll1 == roll3))
+{
+    bonusPoints+=6;
+    Console.WriteLine("Parabéns! Você tirou uma trinca! 6 pontos adicionados ao resultado.");
+}
+
+if (bonusPoints<6)
+{
+if ((roll1 == roll2)||(roll1 == roll3)||(roll3 == roll2))
+{
+    bonusPoints+=2;
+    Console.WriteLine("Parabéns! Você tirou uma dupla! 2 pontos adicionados ao resultado.");
+}
+}
+
+int sumValues = roll1+roll2+roll3+bonusPoints;
+
+if(sumValues>=15)
+{
+    Console.WriteLine($@"Você ganhou! Sua pontuação: {sumValues}");
+}
+if(sumValues<15)
+{
+    Console.WriteLine($@"Você perdeu! Sua pontuação: {sumValues}");
+}
